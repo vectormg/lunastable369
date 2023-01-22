@@ -11,35 +11,9 @@ let horses = [];
 $(document).ready(function(){
 
     fillCarouselData();
+    
 
-    // contact-owlCarousel
-   $('.contact-owlCarousel').owlCarousel({
-      loop:true,
-      autoplay:false,
-      margin:20,
-      nav:true,
-      autoplayTimeout:3000,
-      autoplayHoverPause:true,
-      responsive:{
-         0:{
-             items:1,
-             nav:true
-         },
-         575:{
-            items:2,
-            nav:false
-        },
-         768:{
-             items:3,
-             nav:false
-         },
-         1000:{
-             items:5,
-             nav:true,
-             loop:false
-         }
-     }
-   });
+    
 
    // mas-postCarousel
    $('.mas-postCarousel').owlCarousel({
@@ -89,6 +63,7 @@ function fillHorsesArray(data){
         let dateArray = value.tx_date.split('-');
         
         let horse = {
+            id:value.horse_id,
             name:value.hash_info.name,
             bloodline:value.bloodline,
             genotype:value.genotype,
@@ -97,7 +72,8 @@ function fillHorsesArray(data){
             career:value.career,
             img_url:value.img_url,
             tx_date:dateArray[2].split('T')[0]+'/'+dateArray[1]+'/'+dateArray[0]+' '+dateArray[2].split('T')[1].slice(0,-1),
-            horse_type:value.horse_type
+            horse_type:value.horse_type,
+            orderByBirth:dateArray[0]+''+dateArray[1]+''+dateArray[2].split('T')[0]
         };
         horses.push(horse);
     });
@@ -108,8 +84,17 @@ async function fillCarouselData(){
         let data = await getHorses(addresses[i]);
     }
     for (let i = 0; i < 5; i++) {
-        $('.hero-carousel').append('<div><div class="col-md-7" style="float:left;"><div class="hero-carousel-img"><img src="'+horses[i].img_url+'" alt="carousel-img"></div><!-- banner-offer --><div class="banner-offer"><h3 class="banner-title-lg">“'+horses[i].name+'”</h3><h3 class="banner-title-sm">'+horses[i].name+'</h3><div class="banner-offer-text"><span>'+horses[i].horse_type+'</span><p>Born: '+horses[i].tx_date+'</p></div></div></div><div class="col-md-5" style="float:right;"><div class="breed-content-items"><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Breed 2.0 • class I • 2105</p><span class="bread-circle"></span></div><div class="breed-body"><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed1.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].genotype+'</h4><p>GENOTYPE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed2.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].bloodline+'</h4><p>BLOODLINE</p></div></div></div><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed3.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].number_of_races+'</h4><p>RACES</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed4.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].win_rate+'%</h4><p>WIN RATE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed5.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].career.first+' ∙ '+horses[i].career.second+' ∙ '+horses[i].career.third+'</h4><p>CAREER</p></div></div></div><div class="view-btn"><a href="#"><img src="assets/images/icon/view-btn.png" alt="icon-img"><span>VIEW MORE STATS</span></a></div></div></div><!-- breed button --><div class="breed-group-btn"><div class="single-btn"><button><img src="assets/images/icon/bid.png" alt="icon-img"/> <p>bid</p></button><span>Can Breed In: <strong><br> 8 DAYS</strong></span></div><div class="single-btn active"><button><img src="assets/images/icon/breed.png" alt="icon-img"/> <p>breed</p></button><span>Can Breed In: <strong><br> 8 DAYS</strong></span></div></div><!-- Contact button --><div class="view-btn-contact"><a href="#">Contact</a></div><!-- partner checker --><div class="partner-checker"><p>You can check it out also in:</p><div class="partner-checker-items"><ul><li><a href="#"><img src="assets/images/banner/ZED-Run-Logo1.png" alt="icon-img"></a></li><li><a href="#"><img src="assets/images/banner/logo-ha-2.png" alt="icon-img"></a></li><li><a href="#"><img src="assets/images/banner/Union.png" alt="icon-img"></a></li></ul></div></div></div></div></div>');
+        $('.hero-carousel').append('<div><div class="col-md-7" style="float:left;"><div class="hero-carousel-img"><img src="'+horses[i].img_url+'" alt="carousel-img"></div><!-- banner-offer --><div class="banner-offer"><h3 class="banner-title-lg">“'+horses[i].name+'”</h3><h3 class="banner-title-sm">'+horses[i].name+'</h3><div class="banner-offer-text"><span>'+horses[i].horse_type+'</span><p>Born: '+horses[i].tx_date+'</p></div></div></div><div class="col-md-5" style="float:right;"><div class="breed-content-items"><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Breed 2.0 • class I • 2105</p><span class="bread-circle"></span></div><div class="breed-body"><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed1.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].genotype+'</h4><p>GENOTYPE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed2.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].bloodline+'</h4><p>BLOODLINE</p></div></div></div><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed3.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].number_of_races+'</h4><p>RACES</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed4.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].win_rate+'%</h4><p>WIN RATE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed5.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].career.first+' ∙ '+horses[i].career.second+' ∙ '+horses[i].career.third+'</h4><p>CAREER</p></div></div></div><div class="view-btn"><a href="#"><img src="assets/images/icon/view-btn.png" alt="icon-img"><span>VIEW MORE STATS</span></a></div></div></div><!-- breed button --><div class="breed-group-btn"><div class="single-btn"><button><img src="assets/images/icon/bid.png" alt="icon-img"/> <p>bid</p></button><span>Can Breed In: <strong><br> 8 DAYS</strong></span></div><div class="single-btn active"><button onclick="location.href=\'https://zed.run/'+horses[i].id+'/select-mate\';"><img src="assets/images/icon/breed.png" alt="icon-img"/> <p>breed</p></button><span>Can Breed In: <strong><br> 8 DAYS</strong></span></div></div><!-- Contact button --><div class="view-btn-contact"><a href="#">Contact</a></div><!-- partner checker --><div class="partner-checker"><p>You can check it out also in:</p><div class="partner-checker-items"><ul><li><a href="https://zed.run/racehorse/'+horses[i].id+'"><img src="assets/images/banner/ZED-Run-Logo1.png" alt="icon-img"></a></li><li><a href="https://www.hawku.com/details/zed_run/zed_horse/'+horses[i].id+'"><img src="assets/images/banner/logo-ha-2.png" alt="icon-img"></a></li><li><a href="https://www.stackednaks.com/horse/'+horses[i].id+'"><img src="assets/images/banner/Union.png" alt="icon-img"></a></li></ul></div></div></div></div></div>');
     }
+
+    horses.sort(GetSortOrder('orderByBirth'));
+    console.log(horses);
+
+    for (let i = 0; i < 10; i++) {
+        $('.newcomers-carousel').append('<div class="newcomers-single-item"><div class="newcomers-image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>Born: '+horses[i].tx_date+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Breed 2.0 • class I • 2105</p><span class="bread-circle circle-one" style="background: #F2E5A2;"></span></div><div class="breed-body"><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed1.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].genotype+'</h4><p>GENOTYPE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed2.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].bloodline+'</h4><p>BLOODLINE</p></div></div></div><div class="view-btn"><a href="#"><img src="assets/images/icon/Union.png" alt="icon-img"><span>VIEW MORE STATS</span></a></div></div></div></div>');
+    }
+
+    fillContactCarouselData();
 
     // Hero carousel
    $('.hero-carousel').owlCarousel({
@@ -144,5 +129,54 @@ async function fillCarouselData(){
         }
     });
 }
+
+async function fillContactCarouselData(){
+    horses.sort(GetSortOrder('orderByBirth'));
+
+    for (let i = 0; i < 10; i++) {
+        $('.contact-owlCarousel').append('<div class="newcomers-single-item"><div class="newcomers-image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>Born: '+horses[i].tx_date+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>class I • 2105</p><span class="bread-circle circle-two"></span></div></div></div>');
+    }
+
+    // contact-owlCarousel
+   $('.contact-owlCarousel').owlCarousel({
+    loop:true,
+    autoplay:false,
+    margin:20,
+    nav:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    responsive:{
+       0:{
+           items:1,
+           nav:true
+       },
+       575:{
+          items:2,
+          nav:false
+      },
+       768:{
+           items:3,
+           nav:false
+       },
+       1000:{
+           items:5,
+           nav:true,
+           loop:false
+       }
+   }
+ });
+    
+}
+
+function GetSortOrder(prop) {    
+    return function(a, b) {    
+        if (a[prop] < b[prop]) {    
+            return 1;    
+        } else if (a[prop] > b[prop]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}  
 
 
