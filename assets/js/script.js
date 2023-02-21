@@ -5,45 +5,33 @@ const addresses=[
     '0x571a2f2410fa7fbdca90b00538b539373d087514',
     '0x0Cf5b0c28C363312F2C72cBB3c0818022F04d92b'
 ];
+const channelId='UCW8b6k-ylFIvMJy6LUxq4aQ';
+const blogId='7017020234727177532';
+const apiKey='AIzaSyAGDktiIBEq5PP_4fG-lqqr2ByQuphcufs';
 let horses = [];
 
 
 $(document).ready(function(){
 
     fillCarouselData();
+	fillYoutubeData();
+	fillBlogData();
     
 
     
 
-   // mas-postCarousel
-   $('.mas-postCarousel').owlCarousel({
-      loop:false,
-      autoplay:false,
-      margin:20,
-      nav:false,
-      autoplayTimeout:5000,
-      autoplayHoverPause:true,
-      responsive:{
-         0:{
-             items:1.4,
-         },
-         575:{
-            items:2,
-        },
-         768:{
-             items:3,
-         },
-         1000:{
-             items:3,
-         }
-     }
-   });
+   
 
    // Nav Toggle
     $('#toggleNav-icon').click(function(){
         $(this).toggleClass('open');
         $('.header-nav nav ul').slideToggle();
     });
+	
+	$("#send-message-button").click(function(){
+         window.location.href = "mailto:zedrun.lunastable369@gmail.com?subject="+document.getElementById('name').value+" - "+document.getElementById('select-topic').value+"&body="+document.getElementById('contact-message').value;
+    });
+	
 });
 
 async function getHorses(item){
@@ -166,6 +154,91 @@ async function fillContactCarouselData(){
    }
  });
     
+}
+
+async function fillYoutubeData(){
+    await $.get( "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+channelId+"&maxResults=10&order=date&type=video&key="+apiKey, function( data ) {
+		let firstItem=true;
+		$.each( data.items, function( key, item ) {
+			if(key<6){
+				console.log(item);
+				
+				let dateArray = item.snippet.publishTime.split('-');
+				
+				if(firstItem){
+					document.getElementById("race-principal").getElementsByTagName('img')[0].src=item.snippet.thumbnails.high.url;
+					document.getElementById("race-principal").getElementsByTagName('a')[0].href="https://www.youtube.com/watch?v="+item.id.videoId
+					document.getElementById("race-principal-title").getElementsByTagName('h3')[0].innerHTML="<a href=\"https://www.youtube.com/watch?v="+item.id.videoId+"\" target=\"_blank\">"+item.snippet.title+"</a>";
+					document.getElementById("race-principal-text").innerText=item.snippet.description;
+					
+					firstItem=false;
+				}else{
+					document.getElementById("race-site-items").innerHTML += "<div class=\"race-site-single\"><div class=\"race-image\"><a href=\"https://www.youtube.com/watch?v="+item.id.videoId+"\" target=\"_blank\"><img src=\""+item.snippet.thumbnails.medium.url+"\" alt=\"img\"></a></div><div class=\"race-text\"><h4><a href=\"https://www.youtube.com/watch?v="+item.id.videoId+"\" target=\"_blank\">"+item.snippet.title+"</a></h4><p>"+item.snippet.channelTitle+"</p><p>"+dateArray[2].split('T')[0]+'/'+dateArray[1]+'/'+dateArray[0]+"</p></div></div>"
+					
+				}
+			}
+			
+			
+		});
+    });
+}
+
+async function fillBlogData(){
+	
+    await $.get( "https://www.googleapis.com/blogger/v3/blogs/"+blogId+"/posts?key="+apiKey, function( data ) {
+		
+		let firstItem=true;
+		$.each( data.items, function( key, item ) {
+			if(key<4){
+				var regex = (/(https?:\/\/[^ ]*\.(?:gif|png|jpg|jpeg))/i);
+
+				let str = item.content;
+				let imgurl;
+				if(new RegExp(regex).test(str)){
+					imgurl = regex.exec(str)[1];
+					
+					console.log(imgurl);
+					
+					
+				}
+				
+				if(firstItem){
+					document.getElementById("ultimas-bottom-title").getElementsByTagName('p')[0].innerHTML=item.content;
+					document.getElementById("ultimas-bottom-title").getElementsByTagName('h4')[0].innerHTML="<a href=\""+item.url+"\" target=\"_blank\">"+item.title+"</a>";
+					
+					firstItem=false;
+				}else{
+					document.getElementById("mas-post-item").innerHTML+="<div class=\"mas-single-item\"><img src=\""+imgurl+"\"><a href=\""+item.url+"\" target=\"_blank\"><p>"+item.title+"</p></a></div>"
+				}
+			}
+			
+			
+		});
+		
+		// mas-postCarousel
+	   $('.mas-postCarousel').owlCarousel({
+		  loop:false,
+		  autoplay:false,
+		  margin:20,
+		  nav:false,
+		  autoplayTimeout:5000,
+		  autoplayHoverPause:true,
+		  responsive:{
+			 0:{
+				 items:1.4,
+			 },
+			 575:{
+				items:2,
+			},
+			 768:{
+				 items:3,
+			 },
+			 1000:{
+				 items:3,
+			 }
+		 }
+	   });
+    });
 }
 
 function GetSortOrder(prop) {    
