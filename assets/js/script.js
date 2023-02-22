@@ -90,7 +90,7 @@ async function fillCarouselData(){
         autoplay:true,
         items:1,
         nav:true,
-        autoplayTimeout:3000,
+        autoplayTimeout:7000,
         autoplayHoverPause:true,
         // navText : ["src=''","<i class='fa fa-chevron-right'></i>"],
     });
@@ -102,7 +102,7 @@ async function fillCarouselData(){
         items:3,
         margin:30,
         nav:true,
-        autoplayTimeout:3000,
+        autoplayTimeout:7000,
         autoplayHoverPause:true,
         responsive:{
         0:{
@@ -131,7 +131,7 @@ async function fillContactCarouselData(){
     autoplay:false,
     margin:20,
     nav:true,
-    autoplayTimeout:3000,
+    autoplayTimeout:7000,
     autoplayHoverPause:true,
     responsive:{
        0:{
@@ -166,8 +166,8 @@ async function fillYoutubeData(){
 				let dateArray = item.snippet.publishTime.split('-');
 				
 				if(firstItem){
-					document.getElementById("race-principal").getElementsByTagName('img')[0].src=item.snippet.thumbnails.high.url;
-					document.getElementById("race-principal").getElementsByTagName('a')[0].href="https://www.youtube.com/watch?v="+item.id.videoId
+					//document.getElementById("race-principal").getElementsByTagName('img')[0].src=item.snippet.thumbnails.high.url;
+					document.getElementById("race-principal").getElementsByTagName('iframe')[0].src="https://www.youtube.com/embed/"+item.id.videoId
 					document.getElementById("race-principal-title").getElementsByTagName('h3')[0].innerHTML="<a href=\"https://www.youtube.com/watch?v="+item.id.videoId+"\" target=\"_blank\">"+item.snippet.title+"</a>";
 					document.getElementById("race-principal-text").innerText=item.snippet.description;
 					
