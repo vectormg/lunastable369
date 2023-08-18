@@ -51,10 +51,10 @@ img{
 
 /* Header Area Start
 ------------------------------*/
-.header-area{
+.header-area {
   background: #302A8E;
   padding: 20px 0;
-  border-bottom: 0.1px solid #dddddd70;
+  border-bottom: 3px solid #1F1A7D;
 }
 .header-wrapper{
   display: -webkit-box;
@@ -101,7 +101,7 @@ img{
   color: #FFFFFF;
   font-size: 12px;
   font-weight: 600;
-  padding: 0 30px;
+  margin: 0 30px;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s;
@@ -110,6 +110,7 @@ img{
 .header-nav nav ul li:hover a,
 .header-nav nav ul li.active a{
   opacity: 1;
+  font-weight: 700;
 }
 .header-social ul{
   display: -webkit-box;
@@ -147,16 +148,20 @@ img{
 .banner-title{
   margin-bottom: 30px;
 }
-.banner-title h1{
+.banner-title h1 {
   text-align: center;
   font-style: normal;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 30px;
   color: #FFFFFF;
   position: relative;
-  max-width:1000px;
+  max-width: 1000px;
   margin: auto;
+  letter-spacing: 1px;
+}
+.contact_us_tb h1 {
+  letter-spacing: 1px;
 }
 .banner-title h1::before{
   content: "";
@@ -181,7 +186,20 @@ img{
 .banner-title-large h1::after{
   width:28%
 }
-
+.contact_us_tb h1::before, .contact_us_tb h1::after {
+  width: 24%;
+}
+.banner-title p a{
+  color: #00B2FF;
+  font-weight: 700;
+  text-decoration-line: underline;
+}
+.banner_title_2nd p{
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFF;
+  text-align: center;
+}
 .hero-section-title{
   margin-top: 39px;
   /* margin-bottom: 20px; */
@@ -219,7 +237,7 @@ img{
   font-size: 20px;
   font-weight: 200;
   position: absolute;
-  top: 50%;
+  top: 64%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -718,7 +736,9 @@ img{
       -ms-transform: translateY(-170%);
           transform: translateY(-170%);
 }
-
+.newcomers-single-item{
+  cursor: pointer;
+}
 .newcomers-single-item .circle-one{
   background: #F2E5A2;
 }
@@ -896,6 +916,88 @@ img{
   margin: auto;
   padding-top: 17px;
 }
+.horses_page p {
+  max-width: 735px;
+}
+.horses_filter_main{
+  display: flex;
+  justify-content: space-between;
+}
+.horses_filter_single{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.horses_filter_title p{
+  margin-right: 17px;
+  font-size: ;
+  font-weight: 700;
+  color: #FFF;
+}
+.horses_filter_select{
+  max-width: 216px;
+}
+.horses_banner {
+  background: transparent;
+  padding-top: 0px;
+}
+.horses_items_all{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.horses_singleitem{
+  width: 230px;
+}
+.horsesnewcomers_image img{
+/*  max-width: 100%;*/
+}
+.horsesnewcomers_image{
+  text-align: center;
+}
+.horses_herotitle {
+  margin-top: 0px;
+  padding: 40px 0px 50px 0px !important;
+  background: url(../images/horses-banner.png) no-repeat scroll 0 0 / cover;
+  position: relative;
+  z-index: 2;
+}
+.horses_herotitle::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #000427 0%, rgba(0, 0, 0, 0.00) 100%);
+  transform: rotate(180deg);
+  z-index: -1;
+}
+.horses_page_bantitle {
+  padding: 55px 0px 20px 0px;
+}
+.horses_filter_single_mobile{
+  display: none;
+}
+.horses_filter_icons ul li a img{
+  width: 29px;
+  height: auto;
+}
+.horses_filter_icons ul{
+  display: flex;
+}
+.horses_filter_icons ul li a {
+  border-radius: 5px;
+  padding: 6px;
+  background: transparent;
+  display: inline-block;
+}
+.horses_filter_icons ul li a:hover{
+  background: #1F197C;
+}
+
+
 
 .contact-area{
   margin-top: 53px;
@@ -916,17 +1018,20 @@ img{
   font-size: 16px;
   margin-bottom: 8px;
 }
+.contact-main label span{
+  color: #F00;
+}
 .contact-top input, select{
-	margin: 0;
-	font-weight: 400;
+  margin: 0;
+  font-weight: 400;
   font-size: 14px;
-	width: 100%;
-	padding: 12px;
-	outline: none;
+  width: 100%;
+  padding: 12px;
+  outline: none;
   background: rgba(25, 25, 81, 0.5);
   border: 1.5px solid #191951;
   border-radius: 6px;
-	color: #CDCEFF;
+  color: #CDCEFF;
 }
 .contact-top select{
   padding: 13px 12px;
@@ -1001,18 +1106,80 @@ img{
 .contact-area form  .contact-main textarea{
   width: 100%;
   font-size: 14px;
-	width: 100%;
+  width: 100%;
   max-height: 214px;
-	padding: 12px;
-	outline: none;
+  padding: 12px;
+  outline: none;
   background: rgba(25, 25, 81, 0.5);
   border: 1.5px solid #191951;
   border-radius: 6px;
-	color: #CDCEFF;
+  color: #CDCEFF;
+}
+.contact-us-bottom textarea{
+  height: 100px;
+  resize: none;
+}
+.contact_us_radio_title p {
+  text-align: center;
+  font-size: 18px;
+  color: #FFF;
+  text-align: center;
+  font-weight: 700;
+  margin: 35px 0px 20px 0px;
+}
+.contact_us_radio_title p span{
+  color: #F00;
 }
 
 
+.radio-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
 
+.radio-item input[type='radio'] {
+  display: none;
+}
+
+.radio-item label {
+  color: #fff;
+  font-weight: normal;
+}
+
+.radio-item label::before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 10px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid #191951;
+  background-color: rgba(25, 25, 81, 0.50);
+}
+
+.radio-item input[type="radio"]:checked + label::after {
+  border-radius: 11px;
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  top: 10px;
+  left: 11px;
+  content: " ";
+  display: block;
+  background: #26FFFF;
+}
+.contact-bottom.contact-us-bottom {
+  margin-top: 30px;
+}
+.contact_us_submit{
+  max-width: 344px;
+  margin: auto;
+  padding-top: 25px;
+}
 /* ==================================================================
                               Footer Area CSS
 =================================================================== */
@@ -1128,3 +1295,49 @@ img{
   max-width: 270px;
   width: 100%;
 }
+
+
+.horses_popup_main{
+  border-radius: 6px;
+  background: linear-gradient(180deg, #03093B 55.19%, #2F2F78 100%);
+  box-shadow: 0px 5px 0px 0px #1D1D5B;
+  padding: 40px 40px 50px 0px;
+  overflow: scroll !important;
+  position: relative;
+}
+.horses_popup_left{
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.horses_popup_left_img img {
+  max-width: 540px;
+  width: 100%;
+}
+.horses_maincontents{
+  display: flex;
+  justify-content: space-between;
+}
+.horses_modal_popup_icon a i {
+  color: #1D1D5B;
+  font-size: 21px;
+}
+.horses_modal_popup_icon a {
+  background: #FFF;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.horses_modal_popup_icon {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  border-bottom: none;
+}
+
+
+
