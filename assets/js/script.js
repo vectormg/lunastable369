@@ -32,6 +32,10 @@ $(document).ready(function(){
          window.location.href = "mailto:zedrun.lunastable369@gmail.com?subject="+document.getElementById('name').value+" - "+document.getElementById('select-topic').value+"&body="+document.getElementById('contact-message').value;
     });
 	
+	$("#send-message-button-breeding").click(function(){
+         window.location.href = "mailto:zedrun.lunastable369@gmail.com?subject="+document.getElementById('name').value+" - "+document.getElementById('mail').value+" - "+document.getElementById('select-topic').value+"&body="+document.getElementById('contact-message').value;
+    });
+	
 });
 
 async function getHorses(item){
@@ -85,6 +89,8 @@ async function fillCarouselData(){
     for (let i = 0; i < 10; i++) {
         $('.newcomers-carousel').append('<div class="newcomers-single-item"><div class="newcomers-image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>Born: '+horses[i].tx_date+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Breed '+horses[i].breedType+' • class '+horses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+horses[i].color+';"></span></div><div class="breed-body"><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed1.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].genotype+'</h4><p>GENOTYPE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed2.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].bloodline+'</h4><p>BLOODLINE</p></div></div></div><div class="view-btn"><a href="#"><img src="assets/images/icon/Union.png" alt="icon-img"><span>VIEW MORE STATS</span></a></div></div></div></div>');
     }
+	
+	fillHorsesItemsAll(15);
 
     fillContactCarouselData();
 
@@ -157,6 +163,22 @@ async function fillContactCarouselData(){
        }
    }
  });
+    
+}
+
+async function fillHorsesItemsAll(size){
+	$('.horses_items_all').empty();
+    for (let i = 0; i < size; i++) {
+        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal"><div class="newcomers-image horsesnewcomers_image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>'+horses[i].breedType+' • Class '+horses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+horses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+horses[i].color+';"></span></div></div></div>');
+    }
+    
+}
+
+async function fillHorsesItemsAllNewHorses(size, newHorses){
+	$('.horses_items_all').empty();
+    for (let i = 0; i < size; i++) {
+        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal"><div class="newcomers-image horsesnewcomers_image"><img src="'+newHorses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+newHorses[i].name+'</h4><p>'+newHorses[i].breedType+' • Class '+newHorses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+newHorses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+newHorses[i].color+';"></span></div></div></div>');
+    }
     
 }
 
@@ -254,6 +276,34 @@ function GetSortOrder(prop) {
         }    
         return 0;    
     }    
-}  
+}
 
+function GetSortOrderAsc(prop) {    
+    return function(a, b) {    
+        if (a[prop] > b[prop]) {    
+            return 1;    
+        } else if (a[prop] < b[prop]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}
+
+function viewAllHorses(){
+	fillHorsesItemsAll(horses.length);
+}
+
+function horsesSort(){
+	horses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort').value));
+	fillHorsesItemsAll(horses.length);
+}
+
+function horsesFilter(){
+	let filteredHorses = horses.filter(function(item){
+		  if(item.class==document.getElementById('select-topic-filter').value){
+			return item;
+		  }
+	 });
+	fillHorsesItemsAllNewHorses(filteredHorses.length, filteredHorses);
+}
 
