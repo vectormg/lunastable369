@@ -1,7 +1,7 @@
 /* Max Width 1200 PX */
 @media all and (max-width: 1200px){
 	.header-nav nav ul li a{
-		padding: 0 20px;
+		margin: 0 20px;
 	}
 	
 }
@@ -150,6 +150,8 @@
   }
   .footer-middle-item {
     max-width: 325px;
+		width: 100%;
+		justify-content: center;
   }
   .partner-checker-items {
 		max-width: 100%;
@@ -177,9 +179,63 @@
   }
   .header-nav nav ul li a:hover {
 	}
+.single-footer ul {
+	text-align: center;
 }
+.single-footer.footer-flow-us {
+	text-align: center;
+}
+.footer-item .footer-flow-us.single-footer ul li {
+	margin-right: 0px;
+	margin: 0px 9px;
+}
+.horses_singleitem {
+	width: 220px;
+}
+.horses_filter_single{
+	display: none;
+}
+.horses_filter_single p {
+	margin-right: 6px;
+}
+.horses_filter_single_mobile{
+  display: flex !important;
+}
+.horses_filter_select {
+	max-width: 100%;
+	width: 200px;
+}
+.horses_page{
+	margin-top: 0px;
+	padding-top: 0px;
+}
+.horses_banner{
+	padding-top: 0px;
+}
+.horses_maincontents {
+	flex-direction: column;
+	align-items: center;
+}
+.horses_popup_main {
+	padding: 15px 0px 10px 0px;
+}
+.horses_popup_left_img img {
+	max-width: 400px;
+}
+.horses_popup_left {
+	margin-bottom: 20px;
+}
+
+
+
+
+}
+
+
+
+
 /* Max Width 768 PX */
-@media all and (max-width: 768px){	
+@media all and (max-width: 767px){	
 	.banner-title h1::before,
   	.banner-title h1::after  {
 		width: 22%;
@@ -190,6 +246,9 @@
   .hero-section-title {
 		margin-top: 30px;
 		margin-bottom: 0px;
+	}
+	.horses_herotitle{
+		margin-top: 0px;
 	}
   .section-title::before {
     font-size: 19px;
@@ -283,8 +342,19 @@
   .ultimas-sm h3{
     font-size: 20px;
   }
+  .horses_filter_select {
+		max-width: 100%;
+		width: 170px;
+	}
+	.horses_singleitem_mobile{
+		display: none;
+	}
+
 }
-/* Max Width 768 PX */
+
+
+
+/* Max Width 575 PX */
 @media all and (max-width:575px){
 	.contact-top{
 		-ms-grid-columns: 1fr;
@@ -315,6 +385,11 @@
 	.hero-area::before {
 		height: 500px !important;
 	}
+	
+	
+	
+	
+	
   .banner-offer {
     margin-top: 25px;
   }
@@ -352,6 +427,68 @@
   .contact-banner-sm h1::before, .contact-banner-sm h1::after {
     width: 20%;
   }
+.horses_filter_main {
+	flex-wrap: wrap;
+}
+.hfsm1{
+	flex: 0 0 100%;
+}
+.horses_filter_select {
+	width: 100%;
+}
+.hfsm2{
+	flex: 0 0 50%;
+}
+.hfsm2,.hfsm3{
+	margin-top: 15px;
+}
+.horses_herotitle {
+	padding: 35px 0px 30px 0px !important;
+}
+.horses_singleitem {
+	width: 170px;
+}
+.horsesnewcomers_image img {
+	max-width: 100%;
+}
+.newcomers-title h4 {
+	font-size: 18px;
+	margin-bottom: 2px;
+}
+.breed-header p {
+	font-size: 14px;
+}
+.breed-header span img {
+	max-width: 13px;
+}
+.breed-header .bread-circle {
+	width: 18px;
+	height: 18px;
+}
+.contact-banner {
+	padding-top: 0px;
+}
+.col-md-7{
+		float: unset!important;
+	}
+	.col-md-5{
+		float: unset!important;
+	}
+	.breed-single-icon img{
+		height: 50px!important;
+	}
+	.view-btn a {
+		height:50px;
+	}
+	.breed-group-btn .single-btn button {
+		height:50px;
+	}
+	.view-btn a img{
+		height: 50px!important;
+	}
+	.breed-header{
+		height:50px;
+	}
 
 }
 
@@ -401,10 +538,39 @@
   .banner-title h1::after  {
 		width: 20%;
 	}
+  .contact_us_tb h1::before,
+  .contact_us_tb h1::after  {
+			width: 8%;
+	}
+	.contact_us_tb h1 {
+	  letter-spacing: 0px;
+	}
 	.ultimas-left-image img {
 		-o-object-fit: cover;
 		object-fit: cover;
 		height: auto;
 		width: 100%;
 	}
+	.col-md-7{
+		float: unset!important;
+	}
+	.col-md-5{
+		float: unset!important;
+	}
+	.breed-single-icon img{
+		height: 50px!important;
+	}
+	.view-btn a {
+		height:50px;
+	}
+	.breed-group-btn .single-btn button {
+		height:50px;
+	}
+	.view-btn a img{
+		height: 50px!important;
+	}
+	.breed-header{
+		height:50px;
+	}
+
 }
