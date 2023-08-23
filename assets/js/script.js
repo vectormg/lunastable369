@@ -169,7 +169,7 @@ async function fillContactCarouselData(){
 async function fillHorsesItemsAll(size){
 	$('.horses_items_all').empty();
     for (let i = 0; i < size; i++) {
-        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal"><div class="newcomers-image horsesnewcomers_image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>'+horses[i].breedType+' • Class '+horses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+horses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+horses[i].color+';"></span></div></div></div>');
+        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="'+horses[i].id+'"><div class="newcomers-image horsesnewcomers_image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>'+horses[i].breedType+' • Class '+horses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+horses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+horses[i].color+';"></span></div></div></div>');
     }
     
 }
@@ -177,10 +177,36 @@ async function fillHorsesItemsAll(size){
 async function fillHorsesItemsAllNewHorses(size, newHorses){
 	$('.horses_items_all').empty();
     for (let i = 0; i < size; i++) {
-        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal"><div class="newcomers-image horsesnewcomers_image"><img src="'+newHorses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+newHorses[i].name+'</h4><p>'+newHorses[i].breedType+' • Class '+newHorses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+newHorses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+newHorses[i].color+';"></span></div></div></div>');
+        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="'+horses[i].id+'"><div class="newcomers-image horsesnewcomers_image"><img src="'+newHorses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+newHorses[i].name+'</h4><p>'+newHorses[i].breedType+' • Class '+newHorses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+newHorses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+newHorses[i].color+';"></span></div></div></div>');
     }
-    
 }
+
+$('#exampleModal').on('show.bs.modal', function(e) {
+
+    //get data-id attribute of the clicked element
+    let horseId = $(e.relatedTarget).data('id');
+
+	let horse = horses.find(obj => {
+	  return obj.id === horseId
+	})
+	console.log('---'+horse.id);
+	$('#horses-modal-img').attr('src', horse.img_url);
+	$('#horses-modal-name').text('“'+horse.name+'”');
+	$('#horses-modal-born').text(horse.tx_date);
+	$('#horses-modal-genotype').text(horse.genotype);
+	$('#horses-modal-bloodline').text(horse.bloodline);
+	$('#horses-modal-races').text(horse.number_of_races);
+	$('#horses-modal-winrate').text(horse.win_rate);
+	$('#horses-modal-career').text(horse.career.first+' ∙ '+horse.career.second+' ∙ '+horse.career.third);
+	
+	document.getElementById("horses-modal-breedbutton").onclick = function () {
+        location.href = "https://zed.run/"+horse.id+"/select-mate";
+    };
+	document.getElementById("horses-modal-bidbutton").onclick = function () {
+        location.href = "https://zed.run/"+horse.id+"/select-mate";
+    };
+	
+});
 
 async function fillYoutubeData(){
     await $.get( "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+channelId+"&maxResults=10&order=date&type=video&key="+apiKey, function( data ) {
