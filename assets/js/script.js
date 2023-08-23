@@ -192,6 +192,7 @@ $('#exampleModal').on('show.bs.modal', function(e) {
 	console.log('---'+horse.id);
 	$('#horses-modal-img').attr('src', horse.img_url);
 	$('#horses-modal-name').text('“'+horse.name+'”');
+	$('#horses-modal-name-sm').text(horse.name);
 	$('#horses-modal-born').text(horse.tx_date);
 	$('#horses-modal-genotype').text(horse.genotype);
 	$('#horses-modal-bloodline').text(horse.bloodline);
