@@ -208,7 +208,7 @@ $('#exampleModal').on('show.bs.modal', function(e) {
 	$('#horses-modal-career').text(horse.career.first+' ∙ '+horse.career.second+' ∙ '+horse.career.third);
 	$('#horses-modal-zed-anchor').attr('href', 'https://zed.run/racehorse/'+horse.id)
 	$('#horses-modal-hawku-anchor').attr('href', 'https://www.hawku.com/details/zed_run/zed_horse/'+horse.id)
-	$('#horses-modal-zed-anchor').attr('href', 'https://knowyourhorses.com/horses/'+horse.id)
+	$('#horses-modal-know-anchor').attr('href', 'https://knowyourhorses.com/horses/'+horse.id)
 	$('#horses-modal-viewmorestats').attr('href', 'https://zed.run/racehorse/'+horse.id)
 	
 		
