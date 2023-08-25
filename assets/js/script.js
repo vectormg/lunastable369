@@ -1,197 +1,367 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="keywords" content="">
-   <meta name="description" content="">
-   <meta name="author" content="">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="shortcut icon" href="assets/images/logo-small.png" type="image/x-icon">
-   <title>Contact Us</title>
-   <!-- Bootstrap Css -->
-   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-   <!-- Font-Awesome -->
-   <link rel="stylesheet" href="assets/css/fontaswesome.min.css">
-   <!-- Owl Carousel -->
-   <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-   <!-- Style Css -->
-   <link rel="stylesheet" href="assets/css/style.css">
-   <!-- Responsive Css -->
-   <link rel="stylesheet" href="assets/css/responsive.css">
-</head>
-<body>
-   <!-- Header Area Start -->
-   <header>
-      <div class="header-area">
-         <div class="container-xxl">
-            <div class="header-wrapper">
-               <div class="menu-bar">
-                  <div id="toggleNav-icon" class="menu_icon menu-ba">
-                     <span></span>
-                     <span></span>
-                     <span></span>
-                 </div>
-               </div>
-               <div class="header-logo">
-                  <a href="index.html"><img src="assets/images/logo-small.png" alt="logo-img"/></a>
-               </div>
-               <div class="header-nav">
-                  <nav>
-                     <ul>
-                        <!--<li class="active"><a href="#">MEET OUR CHAMPIONS</a></li>-->
-                        <li><a href="https://lunastable369.blogspot.com/" target="_blank">STABLE NEWS</a></li>
-                        <li><a href="horses.html">OUR HORSES</a></li>
-						<li><a href="contact-us.html">BREEDING</a></li>
-						<li><a href="contact.html">CONTACT US</a></li>
-                     </ul>
-                  </nav>
-               </div>
-               <div class="header-social">
-                  <Ul>
-                     
-                     <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
-                        <path d="M17.9528 4.9204C17.9648 5.09638 17.9648 5.27322 17.9648 5.45079C17.9648 10.8732 13.8368 17.126 6.28961 17.126V17.1228C4.05992 17.1258 1.87652 16.487 0 15.2828C0.32418 15.3216 0.650312 15.3414 0.976797 15.342C2.82484 15.3439 4.61977 14.724 6.07281 13.582C4.31727 13.5491 2.77676 12.404 2.23922 10.7324C2.8541 10.8509 3.48793 10.8268 4.09203 10.662C2.17742 10.2753 0.800547 8.5929 0.800039 6.63966C0.800039 6.62204 0.800039 6.60446 0.800039 6.58767C1.37066 6.90575 2.00941 7.08193 2.66246 7.10126C0.859179 5.89708 0.302891 3.49853 1.39199 1.62361C3.47559 4.18708 6.54953 5.7454 9.84879 5.91083C9.51805 4.48583 9.9702 2.99243 11.0359 1.99025C12.6883 0.436262 15.2876 0.516027 16.8416 2.16845C17.7605 1.98724 18.6417 1.6504 19.4471 1.17243C19.1409 2.12267 18.4997 2.92923 17.6432 3.44204C18.4566 3.34591 19.2511 3.12829 20 2.79646C19.4491 3.62032 18.7559 4.33954 17.9528 4.9204Z" fill="white" fill-opacity="0.5"/>
-                        </svg></a></li>
-                  </Ul>
-               </div>
-            </div>
-         </div>
-      </div>
-   </header>
-   <!-- ===================================================================================
-                                 Header Area End 
-   =====================================================================================-->
+const addresses=[
+    '0x3ad789F3141970A834b807732e40eD1bEF67F587',
+    '0xfd3c5b8be7783cd90169d2e4bc920833c14ab50f',
+    '0x9e09632A26364FDD026bc3D1b92890D09Fe4d919',
+    '0x571a2f2410fa7fbdca90b00538b539373d087514',
+    '0x0Cf5b0c28C363312F2C72cBB3c0818022F04d92b'
+];
+const channelId='UCW8b6k-ylFIvMJy6LUxq4aQ';
+const blogId='7017020234727177532';
+const apiKey='AIzaSyAGDktiIBEq5PP_4fG-lqqr2ByQuphcufs';
+let horses = [];
 
 
-   <!-- ===================================================================================
-                                 Banner Area Start 
-   =====================================================================================-->
-   <section class="hero-area">
-      <div class="hero-section-title pb-3">
-         <img class="desktop-hero" src="assets/images/banner/banner-title.png" alt="banner-title">
-         <img class="mobile-hero" src="assets/images/banner/mobile-hero.png" alt="banner-title">
-      </div>
-      <div class="hero-inner-text contact-banner">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="banner-title banner-title-large contact-banner-sm">
-                     <h1>let’s talk horses</h1>
-                     <p>Si tienes alguna duda o deseas más información sobre nuestro establo, sobre alguna posible cruza o alguno de nuestros caballos, escríbenos y con todo gusto te responderemos a la brevedad posible.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="contact-area">
-                     <form action="#" method="">
-                        <div class="contact-main">
-                           <div class="contact-top">
-                              <div class="name">   
-                                 <label for="name">Name</label>
-                                 <input type="text" id="name" placeholder="What’s your name?">
-                              </div>
-                              <div class="topic">
-                                 <label for="select-topic">Topic</label>
-                                 <select id="select-topic">
-                                    <option selected>What’s it’s this all about?</option>
-                                    <option>I want the offspring of two 'Luna Stable 369' horses.</option>
-                                    <option>I want the offspring of one LS369 horse and on of my own.</option>
-                                 </select>
-                              </div>
-                           </div>
-                           <div class="contact-bottom">
-                              <label for="textarea">Message</label>
-                              <textarea name="textarea" id="contact-message" rows="10" placeholder="Let’s do it!"></textarea>
-                           </div>
-                           <div class="view-btn-contact">
-							 <a id="send-message-button" href="#">SEND MESSAGE</a>
-						  </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-<!-- ===================================================================================
-                                 Banner Area End 
-=====================================================================================-->
+$(document).ready(function(){
 
-<!-- Newcomers Replays Start -->
-<section class="newcomers-area">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="banner-title">
-               <h1>newcomers</h1>
-               <p>Estos son algunos de nuestras nuevas crías que ya están mostrando ser prometedoras. Estos son algunos de nuestras nuevas crías que ya están mostrando ser prometedoras.</p>
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="contact-owlCarousel owl-carousel">
-         </div>
-      </div>
-      <div class="view-btn-contact">
-         <a href="horses.html">VIEW ALL OUR HORSES</a>
-      </div>
-   </div>
-</section>
-<!-- Newcomers Replays End -->
+    fillCarouselData();
+	fillYoutubeData();
+	fillBlogData();
+    
 
-<!-- ===================================================================================
-                                 Footer Area End 
-=====================================================================================-->
-<footer class="footer-area">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="footer-item">
-               <div class="single-footer single-footer-first">
-                  <a href="#"><img src="assets/images/footer-logo.png" alt="logo"></a>
-               </div>
-               <div class="footer-middle-item">
-                  <div class="single-footer">
-                     <ul>
-					   <li><a href="index.html">HOME</a></li>
-					   <li><a href="horses.html">OUR HORSES</a></li>
-					   <li><a href="contact-us.html">BREEDING</a></li>
-					</ul>
-                  </div>
-                  <div class="single-footer">
-                     <ul>
-                        <li><a href="https://lunastable369.blogspot.com/" target="_blank">STABLE NEWS</a></li>
-                        <li><a href="contact.html">CONTACT US</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="single-footer footer-flow-us">
-                  <h4>Follow Us on:</h4>
-                  <ul>
-                     
-                     <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
-                        <path d="M17.9528 4.9204C17.9648 5.09638 17.9648 5.27322 17.9648 5.45079C17.9648 10.8732 13.8368 17.126 6.28961 17.126V17.1228C4.05992 17.1258 1.87652 16.487 0 15.2828C0.32418 15.3216 0.650312 15.3414 0.976797 15.342C2.82484 15.3439 4.61977 14.724 6.07281 13.582C4.31727 13.5491 2.77676 12.404 2.23922 10.7324C2.8541 10.8509 3.48793 10.8268 4.09203 10.662C2.17742 10.2753 0.800547 8.5929 0.800039 6.63966C0.800039 6.62204 0.800039 6.60446 0.800039 6.58767C1.37066 6.90575 2.00941 7.08193 2.66246 7.10126C0.859179 5.89708 0.302891 3.49853 1.39199 1.62361C3.47559 4.18708 6.54953 5.7454 9.84879 5.91083C9.51805 4.48583 9.9702 2.99243 11.0359 1.99025C12.6883 0.436262 15.2876 0.516027 16.8416 2.16845C17.7605 1.98724 18.6417 1.6504 19.4471 1.17243C19.1409 2.12267 18.4997 2.92923 17.6432 3.44204C18.4566 3.34591 19.2511 3.12829 20 2.79646C19.4491 3.62032 18.7559 4.33954 17.9528 4.9204Z" fill="white" fill-opacity="0.5"></path>
-                        </svg></a></li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="footer-copy-right">
-      <img src="assets/images/copy-right.png" alt="img logo">
-   </div>
-</footer>
-<!-- ===================================================================================
-                                 Footer Area End 
-=====================================================================================-->
+    
 
-   <!-- Js Files -->
-   <script src="assets/js/jquery-3.6.1.min.js"></script>
-   <script src="assets/js/owl.carousel.min.js"></script>
-   <script src="assets/js/script.js"></script>
-</body>
-</html>
+   
+
+   // Nav Toggle
+    $('#toggleNav-icon').click(function(){
+        $(this).toggleClass('open');
+        $('.header-nav nav ul').slideToggle();
+    });
+	
+	$("#send-message-button").click(function(){
+         window.location.href = "mailto:lunastable369@gmail.com?subject="+document.getElementById('name').value+" - "+document.getElementById('select-topic').value+"&body="+document.getElementById('contact-message').value;
+    });
+	
+	$("#send-message-button-breeding").click(function(){
+         window.location.href = "mailto:lunastable369@gmail.com?subject="+document.getElementById('name').value+" - "+document.getElementById('mail').value+" - "+document.getElementById('select-topic').value+"&body="+document.getElementById('contact-message').value;
+    });
+	
+});
+
+async function getHorses(item){
+	let offset = 0;
+	let length = 0;
+	do {
+	  await $.get( "https://api.zed.run/api/v1/horses/get_user_horses?public_address="+item+"&offset="+offset, function( data ) {
+		console.log(data);
+        fillHorsesArray(data);
+		length = data.length;
+		offset += length;
+		});
+	} while (length === 10 ); 
+    
+
+    await $.get( "https://api.zed.run/api/v1/horses/get_user_lending_marketplace_horses?public_address="+item+"&offset=0", function( data ) {
+        fillHorsesArray(data);
+    });
+
+}
+
+function fillHorsesArray(data){
+    $.each( data, function( key, value ) {
+        
+        let dateArray = value.tx_date.split('-');
+        
+        let horse = {
+            id:value.horse_id,
+            name:value.hash_info.name,
+            bloodline:value.bloodline,
+            genotype:value.genotype,
+            number_of_races:value.number_of_races,
+            win_rate:value.win_rate,
+            career:value.career,
+            img_url:value.img_url,
+            tx_date:dateArray[2].split('T')[0]+'/'+dateArray[1]+'/'+dateArray[0]+' '+dateArray[2].split('T')[1].slice(0,-1),
+            horse_type:value.horse_type,
+            orderByBirth:dateArray[0]+''+dateArray[1]+''+dateArray[2].split('T')[0],
+			color:value.hash_info.hex_code,
+			breedType:value.breed_type,
+			class:value.class
+        };
+        horses.push(horse);
+    });
+}
+
+async function fillCarouselData(){
+    for (let i = 0; i < 5; i++) {
+        let data = await getHorses(addresses[i]);
+    }
+    for (let i = 0; i < 5; i++) {
+        $('.hero-carousel').append('<div><div class="col-md-7" style="float:left;"><div class="hero-carousel-img"><img src="'+horses[i].img_url+'" alt="carousel-img"></div><!-- banner-offer --><div class="banner-offer"><h3 class="banner-title-lg">“'+horses[i].name+'”</h3><h3 class="banner-title-sm">'+horses[i].name+'</h3><div class="banner-offer-text"><span>'+horses[i].horse_type+'</span><p>Born: '+horses[i].tx_date+'</p></div></div></div><div class="col-md-5" style="float:right;"><div class="breed-content-items"><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Breed '+horses[i].breedType+' • class '+horses[i].class+'</p><span class="bread-circle" style="background: #'+horses[i].color+';"></span></div><div class="breed-body"><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed1.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].genotype+'</h4><p>GENOTYPE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed2.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].bloodline+'</h4><p>BLOODLINE</p></div></div></div><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed3.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].number_of_races+'</h4><p>RACES</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed4.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].win_rate+'%</h4><p>WIN RATE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed5.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].career.first+' ∙ '+horses[i].career.second+' ∙ '+horses[i].career.third+'</h4><p>CAREER</p></div></div></div><div class="view-btn"><a href="https://zed.run/racehorse/'+horses[i].id+'" target="_blank" ><img src="assets/images/icon/view-btn.png" alt="icon-img"><span>VIEW MORE STATS</span></a></div></div></div><!-- breed button --><div class="breed-group-btn"><div class="single-btn"><button onclick="javascript:window.open(\'https://www.hawku.com/details/zed_run/zed_horse/'+horses[i].id+'#:~:text=Create-,Bid,-Bids\', \'_blank\');"><img src="assets/images/icon/bid.png" alt="icon-img"/> <p>bid</p></button></div><div class="single-btn active"><button onclick="javascript:window.open(\'https://zed.run/'+horses[i].id+'/select-mate\', \'_blank\');"><img src="assets/images/icon/breed.png" alt="icon-img"/> <p>breed</p></button></div></div><!-- Contact button --><div class="view-btn-contact"><a href="contact.html">Contact</a></div><!-- partner checker --><div class="partner-checker"><p>You can check it out also in:</p><div class="partner-checker-items"><ul><li><a href="https://zed.run/racehorse/'+horses[i].id+'" target="_blank"><img src="assets/images/banner/ZED-Run-Logo1.png" alt="icon-img"></a></li><li><a href="https://www.hawku.com/details/zed_run/zed_horse/'+horses[i].id+'" target="_blank"><img src="assets/images/banner/logo-ha-2.png" alt="icon-img"></a></li><li><a href="https://knowyourhorses.com/horses/'+horses[i].id+'" target="_blank"><img src="assets/images/banner/Union.png" alt="icon-img"></a></li></ul></div></div></div></div></div>');
+    }
+
+    horses.sort(GetSortOrder('orderByBirth'));
+    console.log(horses);
+
+    for (let i = 0; i < 10; i++) {
+        $('.newcomers-carousel').append('<div class="newcomers-single-item"><div class="newcomers-image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>Born: '+horses[i].tx_date+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Breed '+horses[i].breedType+' • class '+horses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+horses[i].color+';"></span></div><div class="breed-body"><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed1.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].genotype+'</h4><p>GENOTYPE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed2.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].bloodline+'</h4><p>BLOODLINE</p></div></div></div><div class="view-btn"><a href="https://zed.run/racehorse/'+horses[i].id+'" target="_blank" ><img src="assets/images/icon/Union.png" alt="icon-img"><span>VIEW MORE STATS</span></a></div></div></div></div>');
+    }
+	
+	fillHorsesItemsAll(15);
+
+    fillContactCarouselData();
+
+    // Hero carousel
+   $('.hero-carousel').owlCarousel({
+        loop:true,
+        autoplay:true,
+        items:1,
+        nav:true,
+        autoplayTimeout:7000,
+        autoplayHoverPause:true,
+        // navText : ["src=''","<i class='fa fa-chevron-right'></i>"],
+    });
+
+    // newcomers-carousel
+    $('.newcomers-carousel').owlCarousel({
+        loop:true,
+        autoplay:false,
+        items:3,
+        margin:30,
+        nav:true,
+        autoplayTimeout:7000,
+        autoplayHoverPause:true,
+        responsive:{
+        0:{
+            items:1,
+        },
+        767:{
+            items:2,
+        },
+        1000:{
+            items:3,
+        }
+        }
+    });
+}
+
+async function fillContactCarouselData(){
+    horses.sort(GetSortOrder('orderByBirth'));
+
+    for (let i = 0; i < 10; i++) {
+        $('.contact-owlCarousel').append('<div class="newcomers-single-item"><div class="newcomers-image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>Born: '+horses[i].tx_date+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>class '+horses[i].class+'</p><span class="bread-circle circle-two" style="background: #'+horses[i].color+';"></span></div></div></div>');
+    }
+
+    // contact-owlCarousel
+   $('.contact-owlCarousel').owlCarousel({
+    loop:true,
+    autoplay:false,
+    margin:20,
+    nav:true,
+    autoplayTimeout:7000,
+    autoplayHoverPause:true,
+    responsive:{
+       0:{
+           items:1,
+           nav:true
+       },
+       575:{
+          items:2,
+          nav:false
+      },
+       768:{
+           items:3,
+           nav:false
+       },
+       1000:{
+           items:5,
+           nav:true,
+           loop:false
+       }
+   }
+ });
+    
+}
+
+async function fillHorsesItemsAll(size){
+	$('.horses_items_all').empty();
+    for (let i = 0; i < size; i++) {
+        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="'+horses[i].id+'"><div class="newcomers-image horsesnewcomers_image"><img src="'+horses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+horses[i].name+'</h4><p>'+horses[i].breedType+' • Class '+horses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+horses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+horses[i].color+';"></span></div></div></div>');
+    }
+    
+}
+
+async function fillHorsesItemsAllNewHorses(size, newHorses){
+	$('.horses_items_all').empty();
+    for (let i = 0; i < size; i++) {
+        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="'+horses[i].id+'"><div class="newcomers-image horsesnewcomers_image"><img src="'+newHorses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+newHorses[i].name+'</h4><p>'+newHorses[i].breedType+' • Class '+newHorses[i].class+'</p></div><div class="hero-breed"><div class="breed-header"><span><img src="assets/images/icon/locat.png" alt="icon-img"></span><p>Class '+newHorses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+newHorses[i].color+';"></span></div></div></div>');
+    }
+}
+
+$('#exampleModal').on('show.bs.modal', function(e) {
+
+    //get data-id attribute of the clicked element
+    let horseId = $(e.relatedTarget).data('id');
+
+	let horse = horses.find(obj => {
+	  return obj.id === horseId
+	})
+	console.log('---'+horse.id);
+	$('#horses-modal-img').attr('src', horse.img_url);
+	$('#horses-modal-name').text('“'+horse.name+'”');
+	$('#horses-modal-name-sm').text(horse.name);
+	$('#horses-modal-born').text(horse.tx_date);
+	$('#horses-modal-genotype').text(horse.genotype);
+	$('#horses-modal-bloodline').text(horse.bloodline);
+	$('#horses-modal-races').text(horse.number_of_races);
+	$('#horses-modal-winrate').text(horse.win_rate);
+	$('#horses-modal-career').text(horse.career.first+' ∙ '+horse.career.second+' ∙ '+horse.career.third);
+	$('#horses-modal-zed-anchor').attr('href', 'https://zed.run/racehorse/'+horse.id)
+	$('#horses-modal-hawku-anchor').attr('href', 'https://www.hawku.com/details/zed_run/zed_horse/'+horse.id)
+	$('#horses-modal-know-anchor').attr('href', 'https://knowyourhorses.com/horses/'+horse.id)
+	$('#horses-modal-viewmorestats').attr('href', 'https://zed.run/racehorse/'+horse.id)
+	
+		
+	document.getElementById("horses-modal-breedbutton").onclick = function () {
+        window.open("https://zed.run/"+horse.id+"/select-mate");
+    };
+	document.getElementById("horses-modal-bidbutton").onclick = function () {
+		window.open("https://www.hawku.com/details/zed_run/zed_horse/"+horse.id+"#:~:text=Create-,Bid,-Bids");
+    };
+	
+});
+
+async function fillYoutubeData(){
+    await $.get( "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+channelId+"&maxResults=10&order=date&type=video&key="+apiKey, function( data ) {
+		let firstItem=true;
+		$.each( data.items, function( key, item ) {
+			if(key<6){
+				console.log(item);
+				
+				let dateArray = item.snippet.publishTime.split('-');
+				
+				if(firstItem){
+					//document.getElementById("race-principal").getElementsByTagName('img')[0].src=item.snippet.thumbnails.high.url;
+					document.getElementById("race-principal").getElementsByTagName('iframe')[0].src="https://www.youtube.com/embed/"+item.id.videoId
+					document.getElementById("race-principal-title").getElementsByTagName('h3')[0].innerHTML="<a href=\"https://www.youtube.com/watch?v="+item.id.videoId+"\" target=\"_blank\">"+item.snippet.title+"</a>";
+					document.getElementById("race-principal-text").innerText=item.snippet.description;
+					
+					firstItem=false;
+				}else{
+					document.getElementById("race-site-items").innerHTML += "<div class=\"race-site-single\"><div class=\"race-image\"><a href=\"https://www.youtube.com/watch?v="+item.id.videoId+"\" target=\"_blank\"><img src=\""+item.snippet.thumbnails.medium.url+"\" alt=\"img\"></a></div><div class=\"race-text\"><h4><a href=\"https://www.youtube.com/watch?v="+item.id.videoId+"\" target=\"_blank\">"+item.snippet.title+"</a></h4><p>"+item.snippet.channelTitle+"</p><p>"+dateArray[2].split('T')[0]+'/'+dateArray[1]+'/'+dateArray[0]+"</p></div></div>"
+					
+				}
+			}
+			
+			
+		});
+    });
+}
+
+async function fillBlogData(){
+	
+    await $.get( "https://www.googleapis.com/blogger/v3/blogs/"+blogId+"/posts?key="+apiKey, function( data ) {
+		
+		let firstItem=true;
+		$.each( data.items, function( key, item ) {
+			if(key<4){
+				var regex = (/(https?:\/\/[^ ]*\.(?:gif|png|jpg|jpeg))/i);
+
+				let str = item.content;
+				let imgurl;
+				if(new RegExp(regex).test(str)){
+					imgurl = regex.exec(str)[1];
+					
+					console.log(imgurl);
+					
+					
+				}
+				
+				if(firstItem){
+					document.getElementById("ultimas-bottom-title").getElementsByTagName('p')[0].innerHTML=item.content;
+					document.getElementById("ultimas-bottom-title").getElementsByTagName('h4')[0].innerHTML="<a href=\""+item.url+"\" target=\"_blank\">"+item.title+"</a>";
+					
+					firstItem=false;
+				}else{
+					document.getElementById("mas-post-item").innerHTML+="<div class=\"mas-single-item\"><img src=\""+imgurl+"\"><a href=\""+item.url+"\" target=\"_blank\"><p>"+item.title+"</p></a></div>"
+				}
+			}
+			
+			
+		});
+		
+		// mas-postCarousel
+	   $('.mas-postCarousel').owlCarousel({
+		  loop:false,
+		  autoplay:false,
+		  margin:20,
+		  nav:false,
+		  autoplayTimeout:5000,
+		  autoplayHoverPause:true,
+		  responsive:{
+			 0:{
+				 items:1.4,
+			 },
+			 575:{
+				items:2,
+			},
+			 768:{
+				 items:3,
+			 },
+			 1000:{
+				 items:3,
+			 }
+		 }
+	   });
+    });
+}
+
+function GetSortOrder(prop) {    
+    return function(a, b) {    
+        if (a[prop] < b[prop]) {    
+            return 1;    
+        } else if (a[prop] > b[prop]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}
+
+function GetSortOrderAsc(prop) {    
+    return function(a, b) {    
+        if (a[prop] > b[prop]) {    
+            return 1;    
+        } else if (a[prop] < b[prop]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}
+
+function viewAllHorses(){
+	fillHorsesItemsAll(horses.length);
+}
+
+function horsesSort(){
+	horses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort').value));
+	fillHorsesItemsAll(horses.length);
+}
+
+function horsesFilter(elementId){
+	let filteredHorses = horses.filter(function(item){
+			let filterValue = document.getElementById(elementId).value;
+			if(filterValue === "1" || filterValue === "2" || filterValue === "3"){
+				if(item.class==filterValue){
+					return item;
+				  }
+			}
+			if(filterValue === 'Nakamoto' || filterValue === 'Szabo' || filterValue === 'Finny' || filterValue === 'Buterin'){
+				if(item.bloodline.toUpperCase()==filterValue.toUpperCase()){
+					return item;
+				  }
+			}
+			if(filterValue === 'Genesis' || filterValue === 'Legendary' || filterValue === 'Exclusive' || filterValue === 'Elite' || filterValue === 'Cross' || filterValue === 'Pacer'){
+				if(item.breedType.toUpperCase()==filterValue.toUpperCase()){
+					return item;
+				  }
+			}
+			if(filterValue === 'Colt' || filterValue === 'Stallion' || filterValue === 'Filly' || filterValue === 'Mare'){
+				if(item.horse_type.toUpperCase()==filterValue.toUpperCase()){
+					return item;
+				  }
+			}
+			
+	});
+	fillHorsesItemsAllNewHorses(filteredHorses.length, filteredHorses);
+}
+
