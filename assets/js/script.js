@@ -337,9 +337,9 @@ function horsesSort(){
 	fillHorsesItemsAll(horses.length);
 }
 
-function horsesFilter(){
+function horsesFilter(elementId){
 	let filteredHorses = horses.filter(function(item){
-			let filterValue = document.getElementById('select-topic-filter').value;
+			let filterValue = document.getElementById(elementId).value;
 			if(filterValue === "1" || filterValue === "2" || filterValue === "3"){
 				if(item.class==filterValue){
 					return item;
