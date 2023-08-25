@@ -179,11 +179,18 @@
   }
   .header-nav nav ul li a:hover {
 	}
+	.single-footer{
+		padding-left:30px;
+		padding-right:30px;
+	}
 .single-footer ul {
 	text-align: center;
 }
 .single-footer.footer-flow-us {
 	text-align: center;
+}
+.footer-item .footer-flow-us.single-footer ul li {
+	justify-content: center;
 }
 .footer-item .footer-flow-us.single-footer ul li {
 	margin-right: 0px;
