@@ -87,11 +87,25 @@
                   			<p>Filter horses by:</p>
                   		</div>
                   		<div class="horses_filter_select">
-                  			<select id="select-topic-filter" onchange="horsesFilter()">
+                  			<select id="select-topic-filter" onchange="horsesFilter('select-topic-filter')">
                                 <option selected="">Please select one</option>
                             	<option value="1">Class 1</option>
                             	<option value="2">Class 2</option>
 								<option value="3">Class 3</option>
+								<option value="Nakamoto">Nakamoto</option>
+								<option value="Szabo">Szabo</option>
+								<option value="Finny">Finny</option>
+								<option value="Buterin">Buterín</option>
+								<option value="Genesis">Génesis</option>
+								<option value="Legendary">Legendary</option>
+								<option value="Exclusive">Exclusive</option>
+								<option value="Elite">Elite</option>
+								<option value="Cross">Cross</option>
+								<option value="Pacer">Pacer</option>
+								<option value="Colt">Colt</option>
+								<option value="Stallion">Stallion</option>
+								<option value="Filly">Filly</option>
+								<option value="Mare">Mare</option>
                         	</select>
                   		</div>
                   	</div>
@@ -100,7 +114,7 @@
                   			<p>Sort by:</p>
                   		</div>
                   		<div class="horses_filter_select">
-                  			<select id="select-topic-sort" onchange="horsesSort()">
+                  			<select id="select-topic-sort" onchange="horsesSort('select-topic-sort')">
                                 <option selected="">Please select one</option>
                             	<option value="name">Name</option>
                             	<option value="class">Class</option>
@@ -124,33 +138,42 @@
                         	</select>
                   		</div>
                   	</div>-->
-                  	<div class="horses_filter_single horses_filter_single_mobile hfsm1">
+                  	<div class="horses_filter_single horses_filter_single_mobile hfsm2">
                   		<div class="horses_filter_select">
-                  			<select id="select-topic">
-                                <option selected="">Filter horses by:</option>
-                            	<option>item one</option>
-                            	<option>item two</option>
+                  			<select id="select-topic-filter-mobile" onchange="horsesFilter('select-topic-filter-mobile')">
+                                <option selected="">Please select one</option>
+                            	<option value="1">Class 1</option>
+                            	<option value="2">Class 2</option>
+								<option value="3">Class 3</option>
+								<option value="Nakamoto">Nakamoto</option>
+								<option value="Szabo">Szabo</option>
+								<option value="Finny">Finny</option>
+								<option value="Buterin">Buterín</option>
+								<option value="Genesis">Génesis</option>
+								<option value="Legendary">Legendary</option>
+								<option value="Exclusive">Exclusive</option>
+								<option value="Elite">Elite</option>
+								<option value="Cross">Cross</option>
+								<option value="Pacer">Pacer</option>
+								<option value="Colt">Colt</option>
+								<option value="Stallion">Stallion</option>
+								<option value="Filly">Filly</option>
+								<option value="Mare">Mare</option>
                         	</select>
                   		</div>
                   	</div>
                   	<div class="horses_filter_single horses_filter_single_mobile hfsm2">
                   		<div class="horses_filter_select">
-                  			<select id="select-topic">
-                                <option selected="">Sort by:</option>
-                            	<option>item one</option>
-                            	<option>item two</option>
+                  			<select id="select-topic-sort-mobile" onchange="horsesSort('select-topic-sort-mobile')">
+                                <option selected="">Please select one</option>
+                            	<option value="name">Name</option>
+                            	<option value="class">Class</option>
+								<option value="breedType">Breed type</option>
+								<option value="bloodline">Bloodline</option>
+								<option value="genotype">Genotype</option>
+								<option value="win_rate">Winrate</option>
+								<option value="color">Color</option>
                         	</select>
-                  		</div>
-                  	</div>
-                  	<div class="horses_filter_single horses_filter_single_mobile hfsm3">
-                  		<div class="horses_filter_title">
-                  			<p>View:</p>
-                  		</div>
-                  		<div class="horses_filter_icons">
-                  			<ul>
-                  				<li><a href="#"><img src="assets/images/view1.png" alt=""></a></li>
-                  				<li><a href="#"><img src="assets/images/view2.png" alt=""></a></li>
-                  			</ul>
                   		</div>
                   	</div>
                   </div>
