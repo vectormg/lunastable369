@@ -1264,6 +1264,7 @@ img{
       -ms-flex-align: center;
           align-items: center;
   margin-top: 25px;
+  justify-content: center;
 }
 .footer-item .footer-flow-us.single-footer ul li{
   margin-right: 18px;
