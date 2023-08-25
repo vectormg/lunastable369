@@ -339,10 +339,29 @@ function horsesSort(){
 
 function horsesFilter(){
 	let filteredHorses = horses.filter(function(item){
-		  if(item.class==document.getElementById('select-topic-filter').value){
-			return item;
-		  }
-	 });
+			let filterValue = document.getElementById('select-topic-filter').value;
+			if(filterValue === "1" || filterValue === "2" || filterValue === "3"){
+				if(item.class==filterValue){
+					return item;
+				  }
+			}
+			if(filterValue === 'Nakamoto' || filterValue === 'Szabo' || filterValue === 'Finny' || filterValue === 'Buterin'){
+				if(item.bloodline.toUpperCase()==filterValue.toUpperCase()){
+					return item;
+				  }
+			}
+			if(filterValue === 'Genesis' || filterValue === 'Legendary' || filterValue === 'Exclusive' || filterValue === 'Elite' || filterValue === 'Cross' || filterValue === 'Pacer'){
+				if(item.breedType.toUpperCase()==filterValue.toUpperCase()){
+					return item;
+				  }
+			}
+			if(filterValue === 'Colt' || filterValue === 'Stallion' || filterValue === 'Filly' || filterValue === 'Mare'){
+				if(item.horse_type.toUpperCase()==filterValue.toUpperCase()){
+					return item;
+				  }
+			}
+			
+	});
 	fillHorsesItemsAllNewHorses(filteredHorses.length, filteredHorses);
 }
 
