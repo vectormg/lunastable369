@@ -33,7 +33,7 @@ $(document).ready(function(){
     });
 	
 	$("#send-message-button-breeding").click(function(){
-         window.location.href = "mailto:lunastable369@gmail.com?subject="+document.getElementById('name').value+" - "+document.getElementById('mail').value+" - "+document.getElementById('select-topic').value+"&body="+document.getElementById('contact-message').value;
+         window.location.href = "mailto:lunastable369@gmail.com?subject="+document.getElementById('name').value+" - "+document.getElementById('mail').value+" - "+document.getElementById('select-topic').value+"&body=twitter: "+document.getElementById('twitter').value+" </br>Message: "+document.getElementById('contact-message').value;
     });
 	
 });
@@ -333,7 +333,12 @@ function viewAllHorses(){
 }
 
 function horsesSort(){
-	horses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort').value));
+	if(document.getElementById('select-topic-sort').value === 'win_rate'){
+		horses.sort(GetSortOrder(document.getElementById('select-topic-sort').value));
+	}else{
+		horses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort').value));
+	}
+	
 	fillHorsesItemsAll(horses.length);
 }
 
