@@ -581,11 +581,17 @@ img{
   -o-object-fit: contain;
      object-fit: contain;
 }
+.partner-checker-items ul li:nth-child(1) a img{
+	display: unset;
+	max-width: 55px;
+}
 .partner-checker-items ul li:nth-child(2) a img{
-  max-width: 55px;
+	display: unset;
+	max-width: 55px;
 }
 .partner-checker-items ul li:nth-child(3) a img{
-  max-width: 35px;
+	display: unset;
+	max-width: 35px;
 }
 
 /* Hero Area End
