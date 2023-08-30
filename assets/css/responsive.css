@@ -396,7 +396,9 @@
 	.hero-inner-text .owl-carousel .owl-item a img {
 		height: 60px;
 	}
-	
+	.horses_popup_main {
+		overflow: scroll!important;
+	}
 	
 	
   .banner-offer {
