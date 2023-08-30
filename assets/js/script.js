@@ -225,7 +225,7 @@ async function fillYoutubeData(){
     await $.get( "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId="+channelId+"&maxResults=10&order=date&type=video&key="+apiKey, function( data ) {
 		let firstItem=true;
 		$.each( data.items, function( key, item ) {
-			if(key<6){
+			if(key<4){
 				console.log(item);
 				
 				let dateArray = item.snippet.publishTime.split('-');
