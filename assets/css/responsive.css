@@ -370,7 +370,7 @@
 	}
 	.banner-title h1::before,
   .banner-title h1::after  {
-		width: 27%;
+		width: 0%;
 	}
 	.banner-title h1 {
 		font-size: 25px;
@@ -387,13 +387,15 @@
   .hero-inner-text .owl-carousel .owl-item img {
 		display: block;
 		width: 100%;
-		height: 350px;
+		height: auto;
 	}
 	.hero-area::before {
 		height: 500px !important;
 	}
 	
-	
+	.hero-inner-text .owl-carousel .owl-item a img {
+		height: 60px;
+	}
 	
 	
 	
@@ -532,7 +534,7 @@
 	.hero-inner-text .owl-carousel .owl-item img {
 		display: block;
 		width: 100%;
-		height: 300px;
+		height: auto;
 	}
   .mas-post-item {
     -ms-grid-columns: 1fr;
@@ -543,7 +545,7 @@
   }
   .banner-title h1::before,
   .banner-title h1::after  {
-		width: 20%;
+		width: 0%;
 	}
   .contact_us_tb h1::before,
   .contact_us_tb h1::after  {
