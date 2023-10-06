@@ -9,6 +9,7 @@ const channelId='UCW8b6k-ylFIvMJy6LUxq4aQ';
 const blogId='7017020234727177532';
 const apiKey='AIzaSyAGDktiIBEq5PP_4fG-lqqr2ByQuphcufs';
 let horses = [];
+let filteredHorses = [];
 
 
 $(document).ready(function(){
@@ -181,6 +182,17 @@ async function fillHorsesItemsAll(size){
     
 }
 
+async function fillFilteredHorsesItems(size){
+	if(filteredHorses===undefined){
+		filteredHorses = horses;
+	}
+	$('.horses_items_all').empty();
+    for (let i = 0; i < size; i++) {
+        $('.horses_items_all').append('<div class="newcomers-single-item horses_singleitem" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="'+filteredHorses[i].id+'"><div class="newcomers-image horsesnewcomers_image"><img src="'+filteredHorses[i].img_url+'" alt=""></div><div class="newcomers-title"><h4>'+filteredHorses[i].name+'</h4><p>'+filteredHorses[i].breedType+' • '+filteredHorses[i].genotype+'</p></div><div class="hero-breed"><div class="breed-header"><span></span><p>Class '+filteredHorses[i].class+'</p><span class="bread-circle circle-one" style="background: #'+filteredHorses[i].color+';"></span></div></div></div>');
+    }
+    
+}
+
 async function fillHorsesItemsAllNewHorses(size, newHorses){
 	$('.horses_items_all').empty();
     for (let i = 0; i < size; i++) {
@@ -334,40 +346,63 @@ function viewAllHorses(){
 	fillHorsesItemsAll(horses.length);
 }
 
+function viewFilteredHorses(){
+	fillFilteredHorsesItems(horses.length);
+}
+
 function horsesSort(){
-	if(document.getElementById('select-topic-sort').value === 'win_rate'){
-		horses.sort(GetSortOrder(document.getElementById('select-topic-sort').value));
+	if(document.getElementById('select-topic-sort').value === ''){
+		fillHorsesItemsAll(horses.length);
 	}else{
-		horses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort').value));
+		let sortedHorses = [];
+		if(filteredHorses!=undefined && filteredHorses!=null && filteredHorses.length>1){
+			sortedHorses = filteredHorses;
+		}else{
+			sortedHorses = horses;
+		}
+		
+		
+		if(document.getElementById('select-topic-sort').value === 'win_rate'){
+			sortedHorses.sort(GetSortOrder(document.getElementById('select-topic-sort').value));
+		}else{
+			sortedHorses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort').value));
+		}
+		
+		viewFilteredHorses(sortedHorses.length);
 	}
 	
-	fillHorsesItemsAll(horses.length);
+	
 }
 
 function horsesFilter(elementId){
-	let filteredHorses = horses.filter(function(item){
-			let filterValue = document.getElementById(elementId).value;
-			if(filterValue === "1" || filterValue === "2" || filterValue === "3" || filterValue === "4" || filterValue === "5"){
-				if(item.class==filterValue){
-					return item;
-				  }
-			}
-			if(filterValue === 'Nakamoto' || filterValue === 'Szabo' || filterValue === 'Finny' || filterValue === 'Buterin'){
-				if(item.bloodline.toUpperCase()==filterValue.toUpperCase()){
-					return item;
-				  }
-			}
-			if(filterValue === 'Genesis' || filterValue === 'Legendary' || filterValue === 'Exclusive' || filterValue === 'Elite' || filterValue === 'Cross' || filterValue === 'Pacer'){
-				if(item.breedType.toUpperCase()==filterValue.toUpperCase()){
-					return item;
-				  }
-			}
-			if(filterValue === 'Colt' || filterValue === 'Stallion' || filterValue === 'Filly' || filterValue === 'Mare'){
-				if(item.horse_type.toUpperCase()==filterValue.toUpperCase()){
-					return item;
-				  }
-			}
-			
+	const $select = document.querySelector('#select-topic-sort');
+	$select.value = '-1';
+  
+	filteredHorses = horses.filter(function(item){
+		let filterValue = document.getElementById(elementId).value;
+		if(filterValue === "1" || filterValue === "2" || filterValue === "3" || filterValue === "4" || filterValue === "5"){
+			if(item.class==filterValue){
+				return item;
+			  }
+		}
+		if(filterValue === 'Nakamoto' || filterValue === 'Szabo' || filterValue === 'Finny' || filterValue === 'Buterin'){
+			if(item.bloodline.toUpperCase()==filterValue.toUpperCase()){
+				return item;
+			  }
+		}
+		if(filterValue === 'Genesis' || filterValue === 'Legendary' || filterValue === 'Exclusive' || filterValue === 'Elite' || filterValue === 'Cross' || filterValue === 'Pacer'){
+			if(item.breedType.toUpperCase()==filterValue.toUpperCase()){
+				return item;
+			  }
+		}
+		if(filterValue === 'Colt' || filterValue === 'Stallion' || filterValue === 'Filly' || filterValue === 'Mare'){
+			if(item.horse_type.toUpperCase()==filterValue.toUpperCase()){
+				return item;
+			  }
+		}
+		if(filterValue === '' || filterValue === 'All horses' || filterValue === '-1'){
+			return item
+		}
 	});
 	fillHorsesItemsAllNewHorses(filteredHorses.length, filteredHorses);
 }
