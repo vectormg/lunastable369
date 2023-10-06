@@ -351,7 +351,7 @@ function viewFilteredHorses(){
 }
 
 function horsesSort(){
-	if(document.getElementById('select-topic-sort').value === ''){
+	if(document.getElementById('select-topic-sort').value === '' || document.getElementById('select-topic-sort-mobile').value === ''){
 		fillHorsesItemsAll(horses.length);
 	}else{
 		let sortedHorses = [];
@@ -362,10 +362,12 @@ function horsesSort(){
 		}
 		
 		
-		if(document.getElementById('select-topic-sort').value === 'win_rate'){
+		if(document.getElementById('select-topic-sort').value === 'win_rate' ||  document.getElementById('select-topic-sort-mobile').value === 'win_rate'){
 			sortedHorses.sort(GetSortOrder(document.getElementById('select-topic-sort').value));
+			sortedHorses.sort(GetSortOrder(document.getElementById('select-topic-sort-mobile').value));
 		}else{
 			sortedHorses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort').value));
+			sortedHorses.sort(GetSortOrderAsc(document.getElementById('select-topic-sort-mobile').value));
 		}
 		
 		viewFilteredHorses(sortedHorses.length);
@@ -377,6 +379,8 @@ function horsesSort(){
 function horsesFilter(elementId){
 	const $select = document.querySelector('#select-topic-sort');
 	$select.value = '-1';
+	const $selectMobile = document.querySelector('#select-topic-sort-mobile');
+	$selectMobile.value = '-1';
   
 	filteredHorses = horses.filter(function(item){
 		let filterValue = document.getElementById(elementId).value;
