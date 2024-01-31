@@ -1,10 +1,3 @@
-const addresses=[
-    '0x3ad789F3141970A834b807732e40eD1bEF67F587',
-    '0xfd3c5b8be7783cd90169d2e4bc920833c14ab50f',
-    '0x9e09632A26364FDD026bc3D1b92890D09Fe4d919',
-    '0x571a2f2410fa7fbdca90b00538b539373d087514',
-    '0x0Cf5b0c28C363312F2C72cBB3c0818022F04d92b'
-];
 const channelId='UCW8b6k-ylFIvMJy6LUxq4aQ';
 const blogId='7017020234727177532';
 const apiKey='AIzaSyAGDktiIBEq5PP_4fG-lqqr2ByQuphcufs';
@@ -14,6 +7,11 @@ let filteredHorses = [];
 
 $(document).ready(function(){
 
+	fetch('./horses.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+	
+	fillHorsesArray();
     fillCarouselData();
 	fillYoutubeData();
 	fillBlogData();
@@ -38,25 +36,6 @@ $(document).ready(function(){
     });
 	
 });
-
-async function getHorses(item){
-	let offset = 0;
-	let length = 0;
-	do {
-	  await $.get( "https://api.zed.run/api/v1/horses/get_user_horses?public_address="+item+"&offset="+offset, function( data ) {
-		console.log(data);
-        fillHorsesArray(data);
-		length = data.length;
-		offset += length;
-		});
-	} while (length === 10 ); 
-    
-
-    await $.get( "https://api.zed.run/api/v1/horses/get_user_lending_marketplace_horses?public_address="+item+"&offset=0", function( data ) {
-        fillHorsesArray(data);
-    });
-
-}
 
 function fillHorsesArray(data){
     $.each( data, function( key, value ) {
@@ -84,9 +63,7 @@ function fillHorsesArray(data){
 }
 
 async function fillCarouselData(){
-    for (let i = 0; i < 5; i++) {
-        let data = await getHorses(addresses[i]);
-    }
+    
     for (let i = 0; i < 5; i++) {
         $('.hero-carousel').append('<div><div class="col-md-7" style="float:left;"><div class="hero-carousel-img"><img src="'+horses[i].img_url+'" alt="carousel-img"></div><!-- banner-offer --><div class="banner-offer"><h3 class="banner-title-lg">“'+horses[i].name+'”</h3><h3 class="banner-title-sm">'+horses[i].name+'</h3><div class="banner-offer-text"><span>'+horses[i].horse_type+'</span><p>Born: '+horses[i].tx_date+'</p></div></div></div><div class="col-md-5" style="float:right;"><div class="breed-content-items"><div class="hero-breed"><div class="breed-header"><span></span><p>Breed '+horses[i].breedType+' • class '+horses[i].class+'</p><span class="bread-circle" style="background: #'+horses[i].color+';"></span></div><div class="breed-body"><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed1.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].genotype+'</h4><p>GENOTYPE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed2.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].bloodline+'</h4><p>BLOODLINE</p></div></div></div><div class="breed-row"><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed3.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].number_of_races+'</h4><p>RACES</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed4.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].win_rate+'%</h4><p>WIN RATE</p></div></div><div class="breed-items"><div class="breed-single-icon"><img src="assets/images/icon/breed5.png" alt="ico-img"></div><div class="breed-single-text"><h4>'+horses[i].career.first+' ∙ '+horses[i].career.second+' ∙ '+horses[i].career.third+'</h4><p>CAREER</p></div></div></div><div class="view-btn"><a href="https://zed.run/racehorse/'+horses[i].id+'" target="_blank" ><img src="assets/images/icon/view-btn.png" alt="icon-img"><span>VIEW MORE STATS</span></a></div></div></div><!-- breed button --><div class="breed-group-btn"><div class="single-btn"><button onclick="javascript:window.open(\'https://www.hawku.com/details/zed_run/zed_horse/'+horses[i].id+'#:~:text=Create-,Bid,-Bids\', \'_blank\');"><img src="assets/images/icon/bid.png" alt="icon-img"/> <p>bid</p></button></div><div class="single-btn active"><button onclick="javascript:window.open(\'https://zed.run/'+horses[i].id+'/select-mate\', \'_blank\');"><img src="assets/images/icon/breed.png" alt="icon-img"/> <p>breed</p></button></div></div><!-- Contact button --><div class="view-btn-contact"><a href="contact.html">Contact</a></div><!-- partner checker --><div class="partner-checker"><p>You can check it out also in:</p><div class="partner-checker-items"><ul><li><a href="https://zed.run/racehorse/'+horses[i].id+'" target="_blank"><img src="assets/images/banner/ZED-Run-Logo1.png" alt="icon-img"></a></li><li><a href="https://www.hawku.com/details/zed_run/zed_horse/'+horses[i].id+'" target="_blank"><img src="assets/images/banner/logo-ha-2.png" alt="icon-img"></a></li><li><a href="https://knowyourhorses.com/horses/'+horses[i].id+'" target="_blank"><img src="assets/images/banner/Union.png" alt="icon-img"></a></li></ul></div></div></div></div></div>');
     }
