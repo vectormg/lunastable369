@@ -40,13 +40,9 @@ function fillHorsesArray(){
 	const fetchJson = async () => {
 	  try {
 		const data = await fetch('./assets/horses.json');
-		const response = await data.json();  
-	  } catch (error) {
-		console.log(error);
-	  }
-	 };
-	
-    $.each( response, function( key, value ) {
+		const response = await data.json();
+		
+		$.each( response, function( key, value ) {
         
         let dateArray = value.tx_date.split('-');
         
@@ -68,6 +64,14 @@ function fillHorsesArray(){
         };
         horses.push(horse);
     });
+		
+		
+	  } catch (error) {
+		console.log(error);
+	  }
+	 };
+	
+    
 }
 
 async function fillCarouselData(){
