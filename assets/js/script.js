@@ -38,8 +38,7 @@ $(document).ready(function(){
 function fillHorsesArray(){
 	let data;
 	fetch('./assets/horses.json')
-    .then((data) => response.json())
-    .then((json) => console.log(json));
+    .then((data) => console.log(json));
 	
     $.each( data, function( key, value ) {
         
