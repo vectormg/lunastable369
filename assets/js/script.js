@@ -39,7 +39,7 @@ function fillHorsesArray(){
 	
 	const fetchJson = async () => {
 	  try {
-		const data = await fetch('./assets/horses.json');
+		const data = await fetch('/assets/horses.json');
 		const response = await data.json();
 		
 		$.each( response, function( key, value ) {
