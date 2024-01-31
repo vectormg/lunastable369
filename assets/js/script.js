@@ -7,9 +7,7 @@ let filteredHorses = [];
 
 $(document).ready(function(){
 
-	fetch('./assets/horses.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+	
 	
 	fillHorsesArray();
     fillCarouselData();
@@ -37,7 +35,12 @@ $(document).ready(function(){
 	
 });
 
-function fillHorsesArray(data){
+function fillHorsesArray(){
+	fetch('./assets/horses.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+	
+	data = response;
     $.each( data, function( key, value ) {
         
         let dateArray = value.tx_date.split('-');
