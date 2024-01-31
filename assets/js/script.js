@@ -36,11 +36,17 @@ $(document).ready(function(){
 });
 
 function fillHorsesArray(){
-	let data;
-	fetch('./assets/horses.json')
-    .then((data) => console.log(json));
 	
-    $.each( data, function( key, value ) {
+	const fetchJson = async () => {
+	  try {
+		const data = await fetch('./assets/horses.json');
+		const response = await data.json();  
+	  } catch (error) {
+		console.log(error);
+	  }
+	 };
+	
+    $.each( response, function( key, value ) {
         
         let dateArray = value.tx_date.split('-');
         
