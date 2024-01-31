@@ -7,7 +7,7 @@ let filteredHorses = [];
 
 $(document).ready(function(){
 
-	fetch('./horses.json')
+	fetch('./assets/horses.json')
     .then((response) => response.json())
     .then((json) => console.log(json));
 	
